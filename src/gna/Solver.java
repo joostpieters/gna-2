@@ -38,6 +38,7 @@ public class Solver {
 			throw new IllegalArgumentException("Priority function not supported");
 		}
 	}
+	Set<Board> seen = new HashSet<Board>();
 	Board vorige = new Board(new int[][]{{0,0,0},{ 0,0,0},{ 0,0,0}});
 	public void loop(PriorityQueue<Board> queue) {
 		if (queue.peek().manhattan != 0) {
@@ -46,14 +47,16 @@ public class Solver {
 			solution.add(vorige);
 			queue.poll();
 			for (Board buur : vorige.neighbors()) {
-				if (solution.contains(buur)) {
-					System.out.println("skip");
+				if (seen.contains(buur)) {
+					//System.out.println("skip");
 				}else {
 					queue.add(buur);
+					seen.add(buur);
 				}
 			}
-				System.out.println(vorige.toString());
+				//System.out.println(vorige.toString());
 				//System.out.println(vorige.manhattan);
+			System.out.println(queue.size());
 				//System.out.println(queue);
 				loop(queue);
 		}

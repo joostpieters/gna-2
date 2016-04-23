@@ -31,8 +31,8 @@ public class UnitTests {
     System.out.println(board2.manhattan());
     System.out.println(board3.manhattan());
 
-    //Solver solver = new Solver(board1,PriorityFunc.MANHATTAN);
-    //System.out.println(solver);
+    Solver solver = new Solver(board1,PriorityFunc.MANHATTAN);
+    System.out.println(solver);
 
     /*PriorityQueue<Board> queue = new PriorityQueue<>(100, comparator);
     queue.add(board1);
